@@ -1,41 +1,59 @@
 # Sigma-Widge
 
-# Stock Portfolio Optimization
+# Stock Trading Decision Model
 
-This repository contains Python scripts and functions designed for optimizing stock portfolio values using various models and analyses. The scripts are structured to facilitate forecasting of stock prices, maximizing portfolio value, and providing recommendations for stock purchase based on user input.
+This repository contains a Python class named `Model` which represents a simple model for making trading decisions based on stock price movements. Below is an overview of its functionality:
 
-## Extracting Data from Quantrocket
+## Initialization
 
-The provided data extraction script retrieves daily close prices for Apple stock (ticker symbol 'AAPL') for the year 2023 from Quantrocket.
+The class initializes with default values for portfolio value, current state, optimal buy indices, and transition counts.
 
-## Model Fitting and Analysis
+## Return Calculation
 
-### Stock Price Model Inference
+The `calculate_returns` method computes the returns based on the current and previous prices.
 
-A Python class named `Model` is implemented to maximize portfolio value based on a simplistic trading strategy. It includes functionalities such as calculating returns, classifying market states, deriving transition distribution matrix, and maximizing portfolio value based on specified trading rules.
+## Portfolio Value Update
 
-### Test For ARIMA
+The `update_portfolio_value` method updates the portfolio value based on the trading decision.
 
-The ARIMA model is employed for time series forecasting, with tests conducted to examine the stationarity of the provided dataset. Both the KPSS and Dickey-Fuller tests are utilized for this purpose, with interpretations provided for the results.
+## Transition Counts and Probabilities
 
-### Inference based on Stationarity Tests after First-Order Differencing
+- The `update_transition_counts` method updates the transition counts between different states.
+- The `calculate_transition_probabilities` method computes transition probabilities based on transition counts.
 
-Following the non-stationarity indication from initial tests, first-order differencing is applied to enhance the suitability of the data for time series analysis. Insights are drawn from the Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) plots to aid parameter selection for time series models.
+## Trading Decision
 
-## ARIMA Forecasting Function
+The `make_trading_decision` method makes trading decisions based on transition probabilities and the current state. It suggests buying the stock if the probability of price increase is higher; otherwise, it suggests not buying.
 
-A Python function is provided for time series forecasting using the ARIMA model. The function includes steps for data preparation, model training, forecasting, date generation, and output generation. Parameters are determined based on the results of stationarity tests and analyses.
+## Stock Trading Decision Procedure
 
-## Stock Portfolio Optimization Script
+This procedure outlines the steps involved in making trading decisions based on stock price movements:
 
-The main Python script orchestrates the optimization of stock portfolio values. It prompts the user to input a date, processes the date, forecasts future stock prices using the ARIMA model if necessary, maximizes portfolio value, and provides recommendations for stock purchase based on portfolio performance.
+1. **Calculate Returns**: Calculate the returns based on the given formula.
+2. **Classify States**: Classify states based on predefined thresholds.
+3. **Calculate Transition Probability Matrix**: Calculate the transition probability matrix in a streaming fashion.
+4. **Make Trading Decision**: Make trading decisions based on calculated probabilities.
+5. **Update Portfolio Value**: Update portfolio value according to trading decisions.
+6. **Increase Transition Count**: Increase the transition count for the current state transition.
 
 ## How to Use
 
 1. Clone the repository to your local machine.
-2. Ensure all necessary dependencies are installed by referencing the `requirements.txt` file.
-3. Run the provided scripts and functions according to your requirements.
-4. Follow the prompts and instructions provided to input necessary data and obtain insights into stock portfolio optimization.
+2. Ensure you have Python installed along with the necessary dependencies listed in the `requirements.txt` file.
+3. Utilize the `Model` class to make trading decisions based on stock price movements.
+
+## Contributors
+
+- [Your Name]
+- [Any other contributors]
+
+## License
+
+[Specify the license under which the code is distributed, e.g., MIT License]
+
+## Acknowledgments
+
+[Optional: Acknowledge any resources, libraries, or individuals whose work has been utilized in this project]
 
 
 
