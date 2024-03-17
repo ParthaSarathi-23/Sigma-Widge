@@ -42,18 +42,6 @@ This procedure outlines the steps involved in making trading decisions based on 
 2. Ensure you have Python installed along with the necessary dependencies listed in the `requirements.txt` file.
 3. Utilize the `Model` class to make trading decisions based on stock price movements.
 
-## Contributors
-
-- [Your Name]
-- [Any other contributors]
-
-## License
-
-[Specify the license under which the code is distributed, e.g., MIT License]
-
-## Acknowledgments
-
-[Optional: Acknowledge any resources, libraries, or individuals whose work has been utilized in this project]
 
 
 
